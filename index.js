@@ -5,14 +5,15 @@ const bodyParser = require('body-parser')
 
 const config = require('./config/key')
 
-// DB Schema
+// MongoDB Schema
 const { User } = require("./models/User")
 
-// application/x-ww-form-urlencoded
+// application/x-ww-form-urlencoded 변환
 app.use(bodyParser.urlencoded({extended: true}))
-// application/json
+// application/json 변환
 app.use(bodyParser.json())
 
+// MongoDB connection
 const mongoose = require('mongoose')
 mongoose.connect(config.mongoURI, {
     useNewUrlParser: true, 
@@ -33,7 +34,7 @@ app.post('/register', (req, res) => {
     
     // MongoDB 저장
     user.save((err, userInfo) => {
-        if(err) return res.json({ success: false, err})
+        if(err) return res.json({ success: false, err })
         return res.status(200).json({
             success: true
         })
