@@ -25,7 +25,7 @@ function LandingPage() {
         <div style={{ width: '100%', margin: '0' }}>
 
             {/* Main Image */}
-            {/* 이미지를 api로 불러오기전에 렌더링을 진행하기 때문에 &&를 넣어주어야 함 */}
+            {/* 이미지를 api로 불러오기전에 렌더링을 진행하기 때문에 &&를 넣어주어야 함! */}
             {MainMovieImage &&
                 <MainImage 
                 image={`${IMAGE_BASE_URL}w1280${MainMovieImage.backdrop_path}`}
