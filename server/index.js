@@ -33,8 +33,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
+// 서비스를 나눠놓기 위해 route를 사용하여 js를 나눔
 app.use('/api/users', require('./routes/users'));
-
+app.use('/api/favorite', require('./routes/favorite'))
 
 //use this to show the image you have in node js server to client (react js)
 //https://stackoverflow.com/questions/48914987/send-image-path-from-node-js-express-server-to-react-client
